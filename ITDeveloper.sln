@@ -3,9 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Presentation", "1.Presentation", "{89644BEB-A29B-44D8-A0E2-C71E6EF067D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Application", "2.Application", "{0370CE61-0B95-4B98-A0BC-CB0F791AFB55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Domain", "3.Domain", "{16D0976E-C536-4C9D-BF2E-3E7DFBEB8D45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Infra", "4.Infra", "{F3C0973A-D88D-44A0-9806-B2672339DF2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coopership.ITDeveloper.Mvc", "src\Coopership.ITDeveloper.Mvc\Coopership.ITDeveloper.Mvc.csproj", "{286D9E43-4A53-4A7A-9785-3B6655D10F6D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{286D9E43-4A53-4A7A-9785-3B6655D10F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{286D9E43-4A53-4A7A-9785-3B6655D10F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{286D9E43-4A53-4A7A-9785-3B6655D10F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{286D9E43-4A53-4A7A-9785-3B6655D10F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{286D9E43-4A53-4A7A-9785-3B6655D10F6D} = {89644BEB-A29B-44D8-A0E2-C71E6EF067D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D515080E-0379-4C6A-B569-419E3F9893F4}
