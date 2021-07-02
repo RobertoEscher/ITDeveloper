@@ -15,6 +15,11 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
             return View();
         }
 
+        public IActionResult Icones()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

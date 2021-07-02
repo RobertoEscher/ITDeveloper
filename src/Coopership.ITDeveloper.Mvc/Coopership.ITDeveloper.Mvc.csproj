@@ -6,14 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\bundle\core.dashboard.js" />
     <Content Remove="wwwroot\bundle\core.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\bundle\core.dashboard.js" />
     <_ContentIncludedByDefault Remove="wwwroot\bundle\core.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\bundle\core.dashboard.js" />
     <None Include="wwwroot\bundle\core.js" />
   </ItemGroup>
 
