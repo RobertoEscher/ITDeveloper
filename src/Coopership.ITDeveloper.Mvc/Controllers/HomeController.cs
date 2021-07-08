@@ -8,23 +8,45 @@ using System.Threading.Tasks;
 
 namespace Coopership.ITDeveloper.Mvc.Controllers
 {
+    [Route("")]
+    [Route("paciente")]
+    [Route("pacientes")]
+    [Route("gestao-de-paciente")]
+    [Route("gestao-de-pacientes")]
+    [Route("api/[controller]")]
     public class HomeController : Controller
     {
+        [Route("")]
+        [Route("pagina-inicial")]
         public IActionResult Index()
         {
             return View();
         }
 
+        
+        [Route("quem-somos")]
+        [Route("sobre-nos")]
+        [Route("sobre/{id:guid}/{paciente}/{categoria?}")]
+        public IActionResult Sobre(int id, string pacientes, string categoria)
+        {
+            return View();
+        }
+
+        [Route("icones")]
         public IActionResult Icones()
         {
             return View();
         }
 
+        [Route("privacidade")]
+        [Route("politica-de-privacidade")]
         public IActionResult Privacy()
         {
             return View();
         }
 
+        [Route("erro")]
+        [Route("erro-encontrado")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
