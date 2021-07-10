@@ -1,4 +1,5 @@
 ﻿using Coopership.ITDeveloper.Domain.Entities;
+using Coopership.ITDeveloper.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Coopership.ITDeveloper.Data.ORM
@@ -11,5 +12,6 @@ namespace Coopership.ITDeveloper.Data.ORM
         }
 
         public DbSet<Mural> Mural { get; set; }
+        public DbSet<Paciente> Paciente { get; set; }
     }
 }

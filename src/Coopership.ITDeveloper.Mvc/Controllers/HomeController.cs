@@ -9,11 +9,8 @@ using System.Threading.Tasks;
 namespace Coopership.ITDeveloper.Mvc.Controllers
 {
     [Route("")]
-    [Route("paciente")]
-    [Route("pacientes")]
     [Route("gestao-de-paciente")]
     [Route("gestao-de-pacientes")]
-    [Route("api/[controller]")]
     public class HomeController : Controller
     {
         [Route("")]
