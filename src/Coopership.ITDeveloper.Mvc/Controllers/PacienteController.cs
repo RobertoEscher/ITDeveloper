@@ -22,19 +22,24 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
         // GET: Paciente
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Paciente.ToListAsync());
+            //return View(await _context.Paciente.ToListAsync());
+            return View(await _context.Paciente.Include(navigationPropertyPath: x => x.EstadoPaciente).AsNoTracking().ToListAsync());
         }
 
         // GET: Paciente/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var paciente = await _context.Paciente
+            //var paciente = await _context.Paciente
+            //    .FirstOrDefaultAsync(m => m.Id == id);
+
+            var paciente = await _context.Paciente.Include(navigationPropertyPath: x => x.EstadoPaciente).AsNoTracking()
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (paciente == null)
             {
                 return NotFound();
@@ -45,8 +50,11 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao");
+
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Paciente paciente)
@@ -59,6 +67,9 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
                 //return RedirectToAction(nameof(Index));
                 return RedirectToAction("index");
             }
+
+            //ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField:"Id", dataTextField: "Descricao", paciente.EstadoPacienteId);
+            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao");
             return View(paciente);
         }
 
@@ -74,6 +85,9 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
             {
                 return NotFound();
             }
+            
+            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao", paciente.EstadoPacienteId);
+
             return View(paciente);
         }
 
@@ -106,23 +120,28 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao", paciente.EstadoPacienteId);
+
             return View(paciente);
         }
 
         // GET: Paciente/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            var paciente = await _context.Paciente
+            var paciente = await _context.Paciente.Include(navigationPropertyPath: x => x.EstadoPaciente).AsNoTracking()
                 .FirstOrDefaultAsync(m => m.Id == id);
+            //var paciente = await _context.Paciente.AsNoTracking()
+            //    .FirstOrDefaultAsync(m => m.Id == id);
             if (paciente == null)
             {
                 return NotFound();
             }
+            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao", paciente.EstadoPacienteId);
 
             return View(paciente);
         }

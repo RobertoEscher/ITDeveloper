@@ -43,4 +43,9 @@
     <ProjectReference Include="..\Coopership.ITDeveloper.Data\Coopership.ITDeveloper.Data.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="ViewComponents\CabecalhoModulos\" />
+  </ItemGroup>
+
 </Project>

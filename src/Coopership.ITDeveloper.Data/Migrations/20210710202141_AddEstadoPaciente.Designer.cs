@@ -4,14 +4,16 @@ using Coopership.ITDeveloper.Data.ORM;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Coopership.ITDeveloper.Data.Migrations
 {
     [DbContext(typeof(ITDeveloperDbContext))]
-    partial class ITDeveloperDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210710202141_AddEstadoPaciente")]
+    partial class AddEstadoPaciente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,8 +71,6 @@ namespace Coopership.ITDeveloper.Data.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<Guid>("EstadoPacienteId");
-
                     b.Property<string>("Nome");
 
                     b.Property<string>("Rg");
@@ -85,17 +85,7 @@ namespace Coopership.ITDeveloper.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EstadoPacienteId");
-
                     b.ToTable("Paciente");
-                });
-
-            modelBuilder.Entity("Coopership.ITDeveloper.Domain.Models.Paciente", b =>
-                {
-                    b.HasOne("Coopership.ITDeveloper.Domain.Models.EstadoPaciente", "EstadoPaciente")
-                        .WithMany()
-                        .HasForeignKey("EstadoPacienteId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

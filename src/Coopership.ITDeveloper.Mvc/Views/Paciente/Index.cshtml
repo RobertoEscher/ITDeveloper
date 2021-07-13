@@ -4,13 +4,12 @@
     ViewData["Title"] = "Lista de Pacientes";
 }
 
-<div class="row">
-    <div class="panel-heading">
+<div class="panel panel-default panel-controls">
+    <div class="panel panel-heading">
         <h3>Lista de Pacientes</h3>
     </div>
 
-
-    <div class="panel-body">
+    <div class="panel panel-body">
         <p>
             <a asp-controller="Paciente" asp-action="Create" class="btn btn-info"><span class="fa fa-plus-circle"></span>&nbsp;&nbsp;Adicionar Paciente</a>
         </p>
@@ -41,6 +40,13 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Sexo)
                     </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.EstadoPaciente.Descricao)
+                    </th>
+
+
+
                     @*<th>
                             @Html.DisplayNameFor(model => model.Rg)
                         </th>
@@ -81,6 +87,15 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Sexo)
                         </td>
+
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EstadoPaciente.Descricao)
+                        </td>
+
+
+
+
                         @*<td>
                                 @Html.DisplayFor(modelItem => item.Rg)
                             </td>
