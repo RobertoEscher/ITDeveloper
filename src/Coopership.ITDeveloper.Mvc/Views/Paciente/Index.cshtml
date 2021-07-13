@@ -4,6 +4,10 @@
     ViewData["Title"] = "Lista de Pacientes";
 }
 
+<vc:cabecalho titulo="Medical Management-Sys / Módulo Pacientes" subtitulo="Módulo Pacientes"></vc:cabecalho>
+
+<partial name="PartialViews/_estado_paciente" />
+
 <div class="panel panel-default panel-controls">
     <div class="panel panel-heading">
         <h3>Lista de Pacientes</h3>
@@ -44,9 +48,6 @@
                     <th>
                         @Html.DisplayNameFor(model => model.EstadoPaciente.Descricao)
                     </th>
-
-
-
                     @*<th>
                             @Html.DisplayNameFor(model => model.Rg)
                         </th>
@@ -87,15 +88,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Sexo)
                         </td>
-
-
                         <td>
                             @Html.DisplayFor(modelItem => item.EstadoPaciente.Descricao)
                         </td>
-
-
-
-
                         @*<td>
                                 @Html.DisplayFor(modelItem => item.Rg)
                             </td>

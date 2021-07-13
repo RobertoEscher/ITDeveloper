@@ -1,24 +1,31 @@
 ﻿@model Coopership.ITDeveloper.Domain.Models.EstadoPaciente
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes de Estado Paciente";
 }
 
-<h2>Details</h2>
+<div class="panel panel-default panel-controls">
+    <div class="panel panel-heading">
+        <h3>Detalhes de Estado Paciente</h3>
+    </div>
 
-<div>
-    <h4>EstadoPaciente</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="panel panel-body">
+
+        <div>
+            <h4>EstadoPaciente</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Descricao)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
 </div>

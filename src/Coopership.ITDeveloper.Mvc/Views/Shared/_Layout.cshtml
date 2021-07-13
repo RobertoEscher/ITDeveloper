@@ -86,8 +86,8 @@
     <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    
+
+
     @await Html.PartialAsync("PartialViews/_navbar")
 
 
@@ -136,12 +136,8 @@
             <div class="page-content-wrapper">
                 <div class="page-content-inner">
                     <!-- .page-content-inner -->
-                    @await Html.PartialAsync("PartialViews/_sub_navbar")
-
-
 
                     @RenderBody()
-
 
                 </div>
                 <!-- / .page-content-inner -->
@@ -151,24 +147,18 @@
         <!-- / page-content -->
 
     </div>
-                <!-- / #wrapper -->
+    <!-- / #wrapper -->
 
+    @await Html.PartialAsync("PartialViews/_footer")
 
+    <!-- Back to top -->
+    <div id="back-to-top">
+        <a href="#">Back to Top</a>
+    </div>
 
+    @await Html.PartialAsync("PartialViews/_scripts")
 
-
-                @await Html.PartialAsync("PartialViews/_footer")
-
-
-
-                <!-- Back to top -->
-                <div id="back-to-top">
-                    <a href="#">Back to Top</a>
-                </div>
-
-                @await Html.PartialAsync("PartialViews/_scripts")
-
-                @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 
 </body>
 </html>
