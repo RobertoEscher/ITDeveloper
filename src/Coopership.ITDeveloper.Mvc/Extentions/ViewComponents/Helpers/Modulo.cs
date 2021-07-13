@@ -1,4 +1,4 @@
-﻿namespace Coopership.ITDeveloper.Mvc.ViewComponents.Helpers
+﻿namespace Coopership.ITDeveloper.Mvc.Extentions.ViewComponents.Helpers
 {
     public class Modulo
     {

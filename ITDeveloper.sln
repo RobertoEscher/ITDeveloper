@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Infra", "4.Infra", "{F3C0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coopership.ITDeveloper.Mvc", "src\Coopership.ITDeveloper.Mvc\Coopership.ITDeveloper.Mvc.csproj", "{286D9E43-4A53-4A7A-9785-3B6655D10F6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coopership.ITDeveloper.Domain", "src\Coopership.ITDeveloper.Domain\Coopership.ITDeveloper.Domain.csproj", "{473B1789-099C-4D62-89DA-BD5E2884E9C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coopership.ITDeveloper.Domain", "src\Coopership.ITDeveloper.Domain\Coopership.ITDeveloper.Domain.csproj", "{473B1789-099C-4D62-89DA-BD5E2884E9C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1,Data", "4.1,Data", "{2E73FCA1-5970-47D1-A157-5801173AD5C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2.MapEntities", "4.2.MapEntities", "{236A8522-882E-4488-9A7E-CBC6D19F9B0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coopership.ITDeveloper.Data", "src\Coopership.ITDeveloper.Data\Coopership.ITDeveloper.Data.csproj", "{6FEFDEEF-B59E-4D31-A2EA-BEAA1BEFD7A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coopership.ITDeveloper.Data", "src\Coopership.ITDeveloper.Data\Coopership.ITDeveloper.Data.csproj", "{6FEFDEEF-B59E-4D31-A2EA-BEAA1BEFD7A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

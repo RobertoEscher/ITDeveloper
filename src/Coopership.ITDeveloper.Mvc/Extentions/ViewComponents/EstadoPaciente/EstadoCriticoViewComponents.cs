@@ -1,9 +1,9 @@
 ﻿using Coopership.ITDeveloper.Data.ORM;
-using Coopership.ITDeveloper.Mvc.ViewComponents.Helpers;
+using Coopership.ITDeveloper.Mvc.Extentions.ViewComponents.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Coopership.ITDeveloper.Mvc.ViewComponents.EstadoPaciente
+namespace Coopership.ITDeveloper.Mvc.Extentions.ViewComponents.EstadoPaciente
 {
     [ViewComponent(Name = "EstadoCritico")]
     public class EstadoCriticoViewComponents : ViewComponent

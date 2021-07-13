@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace Coopership.ITDeveloper.Mvc.ViewComponents.Helpers
+namespace Coopership.ITDeveloper.Mvc.Extentions.ViewComponents.Helpers
 {
     public static class Util
     {

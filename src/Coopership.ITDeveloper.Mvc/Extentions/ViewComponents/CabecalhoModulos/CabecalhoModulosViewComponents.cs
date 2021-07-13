@@ -1,21 +1,23 @@
-﻿using Coopership.ITDeveloper.Mvc.ViewComponents.Helpers;
+﻿using Coopership.ITDeveloper.Mvc.Extentions.ViewComponents.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Coopership.ITDeveloper.Mvc.ViewComponents.CabecalhoModulos
+namespace Coopership.ITDeveloper.Mvc.Extentions.ViewComponents.CabecalhoModulos
 {
     [ViewComponent(Name = "Cabecalho")]
     public class CabecalhoModulosViewComponents : ViewComponent
     {
         public async Task<IViewComponentResult> InvokeAsync(string titulo, string subtitulo)
         {
-            var modulo = new Modulo()
+            var model = new Modulo()
             {
                 Titulo = titulo,
                 Subtitulo = subtitulo
             };
 
-            return View(modulo);
+            return View(model);
         }
     }
 }
+
+

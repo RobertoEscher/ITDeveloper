@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Coopership.ITDeveloper.Mvc.ViewComponents.Helpers
+namespace Coopership.ITDeveloper.Mvc.Extentions.ViewComponents.Helpers
 {
     public class ContadorEstadoPaciente
     {
