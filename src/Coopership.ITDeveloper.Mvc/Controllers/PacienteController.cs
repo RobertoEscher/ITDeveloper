@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Coopership.ITDeveloper.Data.ORM;
+using Coopership.ITDeveloper.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Coopership.ITDeveloper.Data.ORM;
-using Coopership.ITDeveloper.Domain.Models;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Coopership.ITDeveloper.Mvc.Controllers
 {
@@ -23,7 +22,8 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
         public async Task<IActionResult> Index()
         {
             //return View(await _context.Paciente.ToListAsync());
-            return View(await _context.Paciente.Include(navigationPropertyPath: x => x.EstadoPaciente).AsNoTracking().ToListAsync());
+            return View(await _context.Paciente.Include(navigationPropertyPath: x => x.EstadoPaciente).AsNoTracking()
+                .ToListAsync());
         }
 
         // GET: Paciente/Details/5
@@ -86,7 +86,7 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
                 return NotFound();
             }
             
-            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao", paciente.EstadoPacienteId);
+            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao", selectedValue: paciente.EstadoPacienteId);
 
             return View(paciente);
         }
@@ -121,8 +121,8 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao", paciente.EstadoPacienteId);
-
+            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField:"Id", dataTextField: "Descricao", selectedValue: paciente.EstadoPacienteId);
+            
             return View(paciente);
         }
 
@@ -141,7 +141,7 @@ namespace Coopership.ITDeveloper.Mvc.Controllers
             {
                 return NotFound();
             }
-            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao", paciente.EstadoPacienteId);
+            ViewBag.EstadoPaciente = new SelectList(_context.EstadoPaciente, dataValueField: "Id", dataTextField: "Descricao", selectedValue: paciente.EstadoPacienteId);
 
             return View(paciente);
         }
