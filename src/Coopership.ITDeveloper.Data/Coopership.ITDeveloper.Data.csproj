@@ -5,6 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210714174333_AddMappingsEstadoPacienteEPacienteMap.cs" />
+    <Compile Remove="Migrations\20210714174333_AddMappingsEstadoPacienteEPacienteMap.Designer.cs" />
+    <Compile Remove="Migrations\20210714175447_AddMappingsEstadoPacienteEPacienteMap.cs" />
+    <Compile Remove="Migrations\20210714175447_AddMappingsEstadoPacienteEPacienteMap.Designer.cs" />
+    <Compile Remove="Migrations\20210714180252_AddMappingsEstadoPacienteEPacienteMap.cs" />
+    <Compile Remove="Migrations\20210714180252_AddMappingsEstadoPacienteEPacienteMap.Designer.cs" />
+    <Compile Remove="Migrations\20210714182634_AddMappingsEstadoPacienteEPacienteMapApplyAll2.cs" />
+    <Compile Remove="Migrations\20210714182634_AddMappingsEstadoPacienteEPacienteMapApplyAll2.Designer.cs" />
+    <Compile Remove="Migrations\20210714183005_AddMappingsEstadoPacienteEPacienteMapApplyAll2.cs" />
+    <Compile Remove="Migrations\20210714183005_AddMappingsEstadoPacienteEPacienteMapApplyAll2.Designer.cs" />
+    <Compile Remove="Migrations\20210714183136_AddMappingsEstadoPacienteEPacienteMapApplyAll3.cs" />
+    <Compile Remove="Migrations\20210714183136_AddMappingsEstadoPacienteEPacienteMapApplyAll3.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0">
       <PrivateAssets>all</PrivateAssets>
