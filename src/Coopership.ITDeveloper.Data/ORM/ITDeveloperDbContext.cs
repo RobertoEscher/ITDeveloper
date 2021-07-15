@@ -23,13 +23,14 @@ namespace Coopership.ITDeveloper.Data.ORM
             //modelBuilder.ApplyConfiguration(new PacienteMap());
 
 
-            
-
-
             foreach (var property in modelBuilder.Model.GetEntityTypes()
                 .SelectMany(e => e.GetProperties()
                     .Where(p => p.ClrType == typeof(string))))
-                property.Relational().ColumnType = "varchar(100)";
+            {
+                //property.Relational().ColumnType = "varchar(100)";
+                property.SetColumnType("varchar(90)");
+            }
+                
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ITDeveloperDbContext).Assembly);
 
