@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Coopership.ITDeveloper.DomainCore\Coopership.ITDeveloper.DomainCore.csproj" />
+    <ProjectReference Include="..\Coopership.ITDeveloper.Domain\Coopership.ITDeveloper.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

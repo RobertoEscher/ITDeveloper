@@ -1,7 +1,10 @@
 ﻿using Coopership.ITDeveloper.Data.ORM;
+using Coopership.ITDeveloper.Mvc.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +32,14 @@ namespace Coopership.ITDeveloper.Mvc
             });
 
             services.AddDbContext<ITDeveloperDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultITDeveloper")));
+            
+            services.AddDbContext<AppicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultITDeveloper")));
+            services.AddDefaultIdentity<IdentityUser>()
+                //.AddDefaultUI(UIFramework.Bootstrap4)
+                .AddEntityFrameworkStores<AppicationDbContext>();
+
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -49,6 +60,7 @@ namespace Coopership.ITDeveloper.Mvc
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

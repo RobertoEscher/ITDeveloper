@@ -6,9 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Coopership.ITDeveloper.Mvc.Controllers
 {
+    [Authorize]
     public class PacienteController : Controller
     {
         private readonly ITDeveloperDbContext _context;
