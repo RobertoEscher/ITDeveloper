@@ -1,40 +1,37 @@
-﻿using System;
-using KissLog;
+﻿using KissLog;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Data;
 
 namespace Coopership.ITDeveloper.Mvc.Controllers
 {
     public class LoggerController : Controller
     {
-        //private readonly ILogger<LoggerController> _logger;
         private readonly ILogger _logger;
 
         public LoggerController(ILogger logger)
         {
             _logger = logger;
         }
-
+        [Authorize]
         public IActionResult Index()
         {
-            var msgLogger = "ATENÇÃO: \n UM ERRO PROPOSITAL OCORREU!";
+            var usuario = HttpContext.User.Identity.Name;
 
-            //_logger.Log(LogLevel.Critical, msgLogger);
-            //_logger.Log(LogLevel.Warning, msgLogger);
-            //_logger.Log(LogLevel.Trace, msgLogger);
-            //_logger.LogError(msgLogger);
+            _logger.Trace($"O usuário: {usuario} foi quem fez isso!");
 
-            
 
             try
             {
-                throw new Exception(msgLogger);
+                throw new Exception("ATENÇÃO: \n UM ERRO PROPOSITAL OCORREU. \n CONTATE O ADMINISTRADOR DO SISTEMA!");
             }
             catch (Exception e)
             {
-                _logger.Error(e);
+                _logger.Error($"{e} - Usuário logado: {usuario}");
             }
-            
-            //ViewData["magLogger"] = msgLogger;
+
+            //throw new Exception("ATENÇÃO: \n UM ERRO PROPOSITAL OCORREU. \n CONTATE O ADMINISTRADOR DO SISTEMA!");
 
             return View();
         }
