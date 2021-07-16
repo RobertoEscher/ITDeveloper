@@ -1,28 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <!--<ItemGroup>
-    <Compile Remove="Migrations\20210714174333_AddMappingsEstadoPacienteEPacienteMap.cs" />
-    <Compile Remove="Migrations\20210714174333_AddMappingsEstadoPacienteEPacienteMap.Designer.cs" />
-    <Compile Remove="Migrations\20210714175447_AddMappingsEstadoPacienteEPacienteMap.cs" />
-    <Compile Remove="Migrations\20210714175447_AddMappingsEstadoPacienteEPacienteMap.Designer.cs" />
-    <Compile Remove="Migrations\20210714180252_AddMappingsEstadoPacienteEPacienteMap.cs" />
-    <Compile Remove="Migrations\20210714180252_AddMappingsEstadoPacienteEPacienteMap.Designer.cs" />
-    <Compile Remove="Migrations\20210714182634_AddMappingsEstadoPacienteEPacienteMapApplyAll2.cs" />
-    <Compile Remove="Migrations\20210714182634_AddMappingsEstadoPacienteEPacienteMapApplyAll2.Designer.cs" />
-    <Compile Remove="Migrations\20210714183005_AddMappingsEstadoPacienteEPacienteMapApplyAll2.cs" />
-    <Compile Remove="Migrations\20210714183005_AddMappingsEstadoPacienteEPacienteMapApplyAll2.Designer.cs" />
-    <Compile Remove="Migrations\20210714183136_AddMappingsEstadoPacienteEPacienteMapApplyAll3.cs" />
-    <Compile Remove="Migrations\20210714183136_AddMappingsEstadoPacienteEPacienteMapApplyAll3.Designer.cs" />
-  </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="KissLog.AspNetCore" Version="4.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
