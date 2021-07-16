@@ -17,58 +17,45 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Diagnostics;
 using System.Text;
+using Coopership.ITDeveloper.Mvc.Configuration;
 
 namespace Coopership.ITDeveloper.Mvc
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
 
         public IConfiguration Configuration { get; }
+
+        public Startup(IWebHostEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", true, true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true)
+                .AddEnvironmentVariables();
+
+            if (env.IsProduction())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
+            Configuration = builder.Build();
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
+            //services.AddLogging(logging =>
+            //{
+            //    logging.AddKissLog();
+            //});
 
+            services.AddDbContextConfig(Configuration); // In DBContextConfig
+            services.AddIdentityConfig(Configuration); // In IdentityConfig
+            services.AddMvcAndRazor(); // In MvcAndRazor
+            services.AddInjectConfig(); // In IdentityConfig
 
-
-
-            services.AddLogging(logging =>
-            {
-                logging.AddKissLog();
-            });
-
-
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
-            services.AddDbContext<ITDeveloperDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultITDeveloper")));
-            
-            services.AddDbContext<AppicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultITDeveloper")));
-            services.AddDefaultIdentity<IdentityUser>()
-                //.AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<AppicationDbContext>();
-
-            services.AddControllersWithViews();
-            services.AddRazorPages();
-
-            services.AddMvc(options =>
-            {
-                options.Filters.Add(typeof(AuditoriaILoggerFilter));
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped((context) => Logger.Factory.Get());
-
-            services.AddScoped<AuditoriaILoggerFilter>();
 
         }
 
@@ -96,10 +83,14 @@ namespace Coopership.ITDeveloper.Mvc
             app.UseAuthentication();
             app.UseAuthorization();
 
-            // app.UseKissLogMiddleware() must to be referenced after app.UseAuthentication(), app.UseSession()
-            app.UseKissLogMiddleware(options => {
-                ConfigureKissLog(options);
-            });
+            if (env.IsProduction())
+            {
+                // app.UseKissLogMiddleware() must to be referenced after app.UseAuthentication(), app.UseSession()
+                app.UseKissLogMiddleware(options =>
+                {
+                    ConfigureKissLog(options);
+                });
+            }
 
             app.UseEndpoints(endpoints =>
             {
@@ -110,12 +101,7 @@ namespace Coopership.ITDeveloper.Mvc
                 endpoints.MapRazorPages();
             });
 
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller=Home}/{action=Index}/{id?}");
-            //});
+
         }
 
         private void ConfigureKissLog(IOptionsBuilder options)
