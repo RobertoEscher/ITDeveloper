@@ -1,5 +1,6 @@
 ﻿using Coopership.ITDeveloper.Data.ORM;
 using Coopership.ITDeveloper.Mvc.Data;
+using Coopership.ITDeveloper.Mvc.Extentions.Filters;
 using KissLog;
 using KissLog.AspNetCore;
 using KissLog.CloudListeners.Auth;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,8 +34,7 @@ namespace Coopership.ITDeveloper.Mvc
         {
 
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped((context) => Logger.Factory.Get());
+
 
 
             services.AddLogging(logging =>
@@ -56,10 +57,18 @@ namespace Coopership.ITDeveloper.Mvc
                 //.AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<AppicationDbContext>();
 
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(AuditoriaILoggerFilter));
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped((context) => Logger.Factory.Get());
+
+            services.AddScoped<AuditoriaILoggerFilter>();
 
         }
 
