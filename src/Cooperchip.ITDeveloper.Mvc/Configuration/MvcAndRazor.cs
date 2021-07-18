@@ -1,5 +1,5 @@
 ﻿
-using Cooperchip.ITDeveloper.Mvc.Extentions.Filters;
+using Cooperchip.ITDeveloper.Mvc.Extensions.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
