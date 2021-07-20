@@ -25,7 +25,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Extensions.Identity.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("carlos.itdeveloper@gmail.com", Options.SendGridUser),
+                From = new EmailAddress("roberto.d.escher@gmail.com", Options.SendGridUser),
                 Subject = message,
                 PlainTextContent = message,
                 HtmlContent = message
