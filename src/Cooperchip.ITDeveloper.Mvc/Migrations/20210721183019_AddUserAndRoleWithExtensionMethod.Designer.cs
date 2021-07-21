@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cooperchip.ITDeveloper.Mvc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210717171500_ReestruturandoODBIdentity")]
-    partial class ReestruturandoODBIdentity
+    [Migration("20210721183019_AddUserAndRoleWithExtensionMethod")]
+    partial class AddUserAndRoleWithExtensionMethod
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Cooperchip.ITDeveloper.Mvc.Extensions.ApplicationUser", b =>
+            modelBuilder.Entity("Cooperchip.ITDeveloper.Mvc.Extensions.Identity.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -97,6 +97,27 @@ namespace Cooperchip.ITDeveloper.Mvc.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0D39D367-3E94-4AD8-A49F-519B2A3F358D",
+                            AccessFailedCount = 0,
+                            Apelido = "rfranca",
+                            ConcurrencyStamp = "eac20b15-b664-4952-bf3e-99caebcfa474",
+                            DataNascimento = new DateTime(2021, 7, 21, 15, 30, 18, 785, DateTimeKind.Local).AddTicks(3629),
+                            Email = "rfranca@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NomeCompleto = "Roberto França",
+                            NormalizedEmail = "RFRANCA@GMAIL.COM",
+                            NormalizedUserName = "RFRANCA@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBB+qzfr9H8U5FeYSkTFLSJWkT/f4mvjDryhQLjo+FWbRuA3JojG4xNohyXCDTk8kA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "759cb784-44e5-42d2-a1b8-e67eaf2c536b",
+                            TwoFactorEnabled = false,
+                            UserName = "rfranca@gmail.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -124,6 +145,15 @@ namespace Cooperchip.ITDeveloper.Mvc.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "762818A5-EC7E-4CFF-A74E-B9103E92F021",
+                            ConcurrencyStamp = "01e5ff13-58f2-4add-b899-6d3255d3dc0c",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -211,6 +241,13 @@ namespace Cooperchip.ITDeveloper.Mvc.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "0D39D367-3E94-4AD8-A49F-519B2A3F358D",
+                            RoleId = "762818A5-EC7E-4CFF-A74E-B9103E92F021"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -245,7 +282,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Cooperchip.ITDeveloper.Mvc.Extensions.ApplicationUser", null)
+                    b.HasOne("Cooperchip.ITDeveloper.Mvc.Extensions.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -254,7 +291,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Cooperchip.ITDeveloper.Mvc.Extensions.ApplicationUser", null)
+                    b.HasOne("Cooperchip.ITDeveloper.Mvc.Extensions.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -269,7 +306,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Cooperchip.ITDeveloper.Mvc.Extensions.ApplicationUser", null)
+                    b.HasOne("Cooperchip.ITDeveloper.Mvc.Extensions.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -278,7 +315,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Cooperchip.ITDeveloper.Mvc.Extensions.ApplicationUser", null)
+                    b.HasOne("Cooperchip.ITDeveloper.Mvc.Extensions.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

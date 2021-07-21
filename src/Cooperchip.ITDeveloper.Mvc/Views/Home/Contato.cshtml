@@ -1,0 +1,29 @@
+﻿@model Cooperchip.ITDeveloper.Mvc.ViewModels.ContatoViewModel
+@{
+    ViewData["Title"] = "Fale Conosco";
+}
+
+<vc:cabecalho titulo="Fale Conosco" subtitulo="Conate-nos com as críticas, sugestões e solicotações"></vc:cabecalho>
+
+<div class="panel panel-default panel-controls">
+    <div class="panel panel-heading">
+        <h3>Fale Conosco</h3>
+    </div>
+    <div class="panel panel-body panel-info">
+        <div class="col-md-4">
+            <form asp-controller="Home" asp-action="Contato" method="post">
+                <div asp-validation-sumarry="All" class="text-danger"></div>
+
+                <partial name="_contato"/>
+                
+
+                <div class="form-group">
+                    <input type="submit" value="Enviar" class="btn btn-success" />
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-default"></a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
