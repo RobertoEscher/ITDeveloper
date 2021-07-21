@@ -23,6 +23,8 @@ namespace Cooperchip.ITDeveloper.Data.ORM
 
         public DbSet<EstadoPaciente> EstadoPaciente { get; set; }
 
+        public DbSet<Generico> Generico { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

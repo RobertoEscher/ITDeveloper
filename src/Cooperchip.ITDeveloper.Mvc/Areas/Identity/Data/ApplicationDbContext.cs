@@ -20,7 +20,9 @@ namespace Cooperchip.ITDeveloper.Mvc.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
-            ModelBuilderExtension.AddUserAndRole(builder);
+            //ModelBuilderExtension.AddUserAndRole(builder);
+            builder.AddUserAndRole();
+            builder.AddGericos();
 
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.
