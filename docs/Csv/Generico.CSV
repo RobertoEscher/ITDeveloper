@@ -4,16 +4,16 @@ GenericoId;Descricao
 3;Acarbose
 4;Acetazolamida
 5;Aciclovir
-6;¡cido AcetilsalicÌlico
-7;¡cido FÛlico
-8;¡cido FolÌnico
-9;¡cido NicotÌnico
-10;¡cido Tranex‚mico
-11;¡cido ValprÛico
+6;√Åcido Acetilsalic√≠lico
+7;√Åcido F√≥lico
+8;√Åcido Fol√≠nico
+9;√Åcido Nicot√≠nico
+10;√Åcido Tranex√¢mico
+11;√Åcido Valpr√≥ico
 12;Adenosina
 13;Adrenalina
 14;AGE
-15;¡gua
+15;√Ågua
 16;AINEs
 17;Albendazol
 18;Albumina
@@ -33,18 +33,18 @@ GenericoId;Descricao
 32;Ampicilina-sulbactam
 33;Amprenavir
 34;Amrinona
-35;AnestÈsicos gerais
+35;Anest√©sicos gerais
 36;Anfotericina B
 37;Anlodipina
-38;AntiarrÌtmicos
+38;Antiarr√≠tmicos
 39;Antiparkinsonianos
-40;AntipsicÛticos
+40;Antipsic√≥ticos
 41;Astemizol
 42;Atazanavir
 43;Atenolol
 44;Atorvastatina
 45;Atovaquona
-46;Atrac˙rio
+46;Atrac√∫rio
 47;Atropina
 48;Azitromicina
 49;Aztreonam
@@ -54,13 +54,13 @@ GenericoId;Descricao
 53;Betabloqueadores
 54;Betametasona
 55;Bezafibrato
-56;Bicarbonato de SÛdio
+56;Bicarbonato de S√≥dio
 57;Biperideno
 58;Bisacodil
 59;Bisoprolol
 60;Bromazepam
 61;Bromoprida
-62;BupivacaÌna
+62;Bupivaca√≠na
 63;Buspirona
 64;Captopril
 65;Carbamazepina
@@ -95,12 +95,12 @@ GenericoId;Descricao
 94;Clonidina
 95;Clopidogrel
 96;Cloranfenicol
-97;ClordiazepÛxido
+97;Clordiazep√≥xido
 98;Cloroquina
 99;Clorpromazina
 100;Clorpropamida
 101;Clortalidona
-102;CodeÌna
+102;Code√≠na
 103;Codergocrina
 104;Colchicina
 105;Colestiramina
@@ -110,7 +110,7 @@ GenericoId;Descricao
 109;Daptomicina
 110;Darunavir
 111;Delavirdina
-112;DeslanosÌdeo C
+112;Deslanos√≠deo C
 113;Desmopressina
 114;Dexametasona
 115;Dexclorfeniramina
@@ -127,7 +127,7 @@ GenericoId;Descricao
 126;Diosmina-Hesperidina
 127;Dipirona
 128;Disopiramida
-129;DiurÈticos de alÁa
+129;Diur√©ticos de al√ßa
 130;Dobutamina
 131;Domperidona
 132;Dopamina
@@ -150,7 +150,7 @@ GenericoId;Descricao
 149;Etionamida
 150;Etoricoxibe
 151;Fenazopiridina
-152;FenitoÌna
+152;Fenito√≠na
 153;Fenobarbital
 154;Fenotiazinas
 155;Fentanil
@@ -179,14 +179,14 @@ GenericoId;Descricao
 178;Glimepirida
 179;Glipizida
 180;Glucagon
-181;Gluconato de C·lcio
+181;Gluconato de C√°lcio
 182;Haloperidol
 183;Heparina
 184;Hidralazina
 185;Hidroclorotiazida
 186;Hidrocortisona
 187;Hidroxicloroquina
-188;HidrÛxido de AlumÌnio
+188;Hidr√≥xido de Alum√≠nio
 189;Hidroxietilamido
 190;Hidroxizina
 191;Hioscina
@@ -201,7 +201,7 @@ GenericoId;Descricao
 200;Indapamida
 201;Indinavir
 202;Indometacina
-203;Inibidores da Anidrase CarbÙnica
+203;Inibidores da Anidrase Carb√¥nica
 204;Inibidores da Protease
 205;Insulina
 206;Isoniazida
@@ -221,10 +221,10 @@ GenericoId;Descricao
 220;Levomepromazina
 221;Levosimendam
 222;Levotiroxina
-223;LidocaÌna
+223;Lidoca√≠na
 224;Linezolida
 225;Lisinopril
-226;LÌtio
+226;L√≠tio
 227;Loperamida
 228;Lopinavir/r
 229;Lopinavir-r
@@ -254,7 +254,7 @@ GenericoId;Descricao
 253;Morfina
 254;Moxifloxacina
 255;Mupirocin
-256;N-AcetilcisteÌna
+256;N-Acetilciste√≠na
 257;NaCl
 258;Nalbufina
 259;Naloxona
@@ -269,22 +269,22 @@ GenericoId;Descricao
 268;Nistatina
 269;Nitrendipina
 270;Nitroglicerina
-271;Nitroprussiato de SÛdio
+271;Nitroprussiato de S√≥dio
 272;Noradrenalina
 273;Norfloxacina
 274;Nortriptilina
-275;NutriÁ„o Parenteral Total
+275;Nutri√ß√£o Parenteral Total
 276;Ocitocina
 277;Octreotida
 278;Octreotide
-279;”leo Mineral
+279;√ìleo Mineral
 280;Omeprazol
 281;Ondansetrona
 282;Orlistate
 283;Oseltamivir
 284;Oxacilina
-285;OxigÍnio
-286;PancurÙnio
+285;Oxig√™nio
+286;Pancur√¥nio
 287;Pantoprazol
 288;Paracetamol
 289;Paroxetina
@@ -343,14 +343,14 @@ GenericoId;Descricao
 342;Sucralfato
 343;Sulfametoxazol-Trimetoprim
 344;Sulfassalazina
-345;Sulfato de MagnÈsio
+345;Sulfato de Magn√©sio
 346;Sulfato Ferroso
 347;Tamarine
 348;Teicoplanina
 349;Tenoxicam
 350;Terfenadina
 351;Tiabendazol
-352;TiazÌdicos
+352;Tiaz√≠dicos
 353;Ticarcilina
 354;Ticarcilina-clavulanato
 355;Ticlopidina
@@ -363,14 +363,14 @@ GenericoId;Descricao
 362;Tobramicina
 363;Tramadol
 364;Trazodona
-365;TricÌclicos
+365;Tric√≠clicos
 366;Trimetazidina
 367;Troglitazona
 368;Valaciclovir
 369;Valsartan
 370;Vancomicina
 371;Vasopressina
-372;VecurÙnio
+372;Vecur√¥nio
 373;Venlafaxina
 374;Veparamil
 375;Verapamil

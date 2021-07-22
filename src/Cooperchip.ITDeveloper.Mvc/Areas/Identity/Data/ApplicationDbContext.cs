@@ -21,8 +21,10 @@ namespace Cooperchip.ITDeveloper.Mvc.Data
         {
 
             //ModelBuilderExtension.AddUserAndRole(builder);
-            builder.AddUserAndRole();
-            builder.AddGericos();
+            //builder.AddUserAndRole();
+            //builder.AddGericos();
+
+            builder.AddCid();
 
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.

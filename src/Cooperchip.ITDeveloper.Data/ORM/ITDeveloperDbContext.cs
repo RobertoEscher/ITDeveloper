@@ -25,6 +25,8 @@ namespace Cooperchip.ITDeveloper.Data.ORM
 
         public DbSet<Generico> Generico { get; set; }
 
+        public DbSet<Cid> Cid { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,7 +40,7 @@ namespace Cooperchip.ITDeveloper.Data.ORM
                 property.SetColumnType("varchar(90)");
             }
 
-
+            
 
             //modelBuilder.ApplyConfiguration(new EstadoPacienteMap());
             //modelBuilder.ApplyConfiguration(new PacienteMap());
@@ -47,7 +49,9 @@ namespace Cooperchip.ITDeveloper.Data.ORM
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ITDeveloperDbContext).Assembly);
 
             //remover delete cascade
-            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes()
+                .SelectMany(e => e.GetForeignKeys())) 
+                relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
 
             base.OnModelCreating(modelBuilder);
 
