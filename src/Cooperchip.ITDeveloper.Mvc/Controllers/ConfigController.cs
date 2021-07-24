@@ -18,6 +18,24 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
         }
 
         [HttpGet]
+        public IActionResult MenuConfig()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult ImportarCid()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult ImportarGenerico()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
         public async Task<IActionResult> ImportMedicamentos([FromServices] ITDeveloperDbContext context)
         {
 

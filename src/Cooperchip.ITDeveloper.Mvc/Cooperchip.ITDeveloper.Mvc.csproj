@@ -6,15 +6,57 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <UserSecretsId>49009155-e3bf-46b6-84b4-eb218869f012</UserSecretsId>
   </PropertyGroup>
-  
+
+
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210722182321_TesteCharSet.cs" />
-    <Compile Remove="Migrations\20210722182321_TesteCharSet.Designer.cs" />
+
+    <PackageReference Include="kisslog.AspNetCore" Version="2.5.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.3.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.96" />
+    <PackageReference Include="SendGrid" Version="9.24.1" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.1" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.1.0" />
   </ItemGroup>
-  
+
 
   <ItemGroup>
+    <ProjectReference Include="..\Cooperchip.ITDeveloper.Data\Cooperchip.ITDeveloper.Data.csproj" />
+    <ProjectReference Include="..\Coopership.ITDeveloper.Application\Coopership.ITDeveloper.Application.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\bundle\allpages.min.js" />
+    <None Include="wwwroot\bundle\core.min.js" />
+    <None Include="wwwroot\bundle\dashboard.min.js" />
+    <None Include="wwwroot\bundle\dataTables.min.js" />
+    <None Include="wwwroot\bundle\firstpage.min.js" />
+    <None Include="wwwroot\bundle\jquery.js" />
+    <None Include="wwwroot\bundle\jquery.min.js" />
+    <None Include="wwwroot\bundle\jquery.unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\bundle\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\Content\bootstrap-grid.css.map" />
+    <None Include="wwwroot\Content\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\Content\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\Content\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\Content\bootstrap.css.map" />
+    <None Include="wwwroot\Content\bootstrap.min.css.map" />
+    <None Include="wwwroot\Content\toastr.less" />
+    <None Include="wwwroot\Content\toastr.scss" />
     <None Include="wwwroot\css\less\animate.less" />
     <None Include="wwwroot\css\less\app.less" />
     <None Include="wwwroot\css\less\body.less" />
@@ -139,8 +181,20 @@
     <None Include="wwwroot\css\less\right-sidebar.less" />
     <None Include="wwwroot\css\less\sidebar.less" />
     <None Include="wwwroot\css\less\template-elements.less" />
+    <None Include="wwwroot\datatables\jquery.dataTables.min.js" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\fonts\linea.svg" />
+    <None Include="wwwroot\images\base.psd" />
+    <None Include="wwwroot\images\img_cards.psd" />
+    <None Include="wwwroot\img\avatars\numero.psd" />
+    <None Include="wwwroot\img\avatars\numero_pequeno.psd" />
     <None Include="wwwroot\js\bootstrap\bootstrap.js" />
     <None Include="wwwroot\js\bootstrap\bootstrap.min.js" />
+    <None Include="wwwroot\js\jquery.dynamic.js" />
+    <None Include="wwwroot\js\jRespond.min.js" />
     <None Include="wwwroot\js\libs\classie.js" />
     <None Include="wwwroot\js\libs\date.js" />
     <None Include="wwwroot\js\libs\excanvas.min.js" />
@@ -157,6 +211,7 @@
     <None Include="wwwroot\js\libs\respond.min.js" />
     <None Include="wwwroot\js\libs\typeahead.bundle.js" />
     <None Include="wwwroot\js\libs\typeahead.jquery.min.js" />
+    <None Include="wwwroot\js\main.js" />
     <None Include="wwwroot\js\pages\accordions.js" />
     <None Include="wwwroot\js\pages\blank.js" />
     <None Include="wwwroot\js\pages\calendar.js" />
@@ -187,6 +242,7 @@
     <None Include="wwwroot\js\pages\tables-data.js" />
     <None Include="wwwroot\js\pages\tables-editable.js" />
     <None Include="wwwroot\js\pages\tabs.js" />
+    <None Include="wwwroot\myPlugins\copy_csv_xls_pdf.swf" />
     <None Include="wwwroot\plugins\charts\canvas-gauge\gauge.js" />
     <None Include="wwwroot\plugins\charts\chartjs\Chart-combined.js" />
     <None Include="wwwroot\plugins\charts\chartjs\Chart.js" />
@@ -203,7 +259,6 @@
     <None Include="wwwroot\plugins\charts\flot\jquery.flot.crosshair.min.js" />
     <None Include="wwwroot\plugins\charts\flot\jquery.flot.curvedLines.js" />
     <None Include="wwwroot\plugins\charts\flot\jquery.flot.custom.js" />
-    <None Include="wwwroot\plugins\charts\flot\jquery.flot.custom.min.js" />
     <None Include="wwwroot\plugins\charts\flot\jquery.flot.errorbars.js" />
     <None Include="wwwroot\plugins\charts\flot\jquery.flot.errorbars.min.js" />
     <None Include="wwwroot\plugins\charts\flot\jquery.flot.fillbetween.js" />
@@ -776,6 +831,15 @@
     <None Include="wwwroot\plugins\ui\waypoint\waypoints.js" />
     <None Include="wwwroot\plugins\ui\waypoint\waypoints.min.js" />
     <None Include="wwwroot\plugins\ui\weather\skyicons.js" />
+    <None Include="wwwroot\Scripts\bootstrap-tagsinput.js" />
+    <None Include="wwwroot\Scripts\bootstrap.bundle.js" />
+    <None Include="wwwroot\Scripts\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\Scripts\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\Scripts\bootstrap.js" />
+    <None Include="wwwroot\Scripts\bootstrap.js.map" />
+    <None Include="wwwroot\Scripts\bootstrap.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap.min.js.map" />
     <None Include="wwwroot\Scripts\cooperchip\buscas.js" />
     <None Include="wwwroot\Scripts\cooperchip\componentes\ashobiz\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\Scripts\cooperchip\componentes\ashobiz\fonts\fontawesome-webfont.woff2" />
@@ -1017,6 +1081,23 @@
     <None Include="wwwroot\Scripts\esm\popper.js.map" />
     <None Include="wwwroot\Scripts\esm\popper.min.js" />
     <None Include="wwwroot\Scripts\esm\popper.min.js.map" />
+    <None Include="wwwroot\Scripts\jquery-1.11.3.js" />
+    <None Include="wwwroot\Scripts\jquery-3.1.1.intellisense.js" />
+    <None Include="wwwroot\Scripts\jquery-3.1.1.js" />
+    <None Include="wwwroot\Scripts\jquery-3.1.1.min.js" />
+    <None Include="wwwroot\Scripts\jquery-3.1.1.min.map" />
+    <None Include="wwwroot\Scripts\jquery-3.1.1.slim.js" />
+    <None Include="wwwroot\Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="wwwroot\Scripts\jquery-3.1.1.slim.min.map" />
+    <None Include="wwwroot\Scripts\jquery-ui-1.11.2.min.js" />
+    <None Include="wwwroot\Scripts\jquery.unobtrusive-ajax.js" />
+    <None Include="wwwroot\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\Scripts\jquery.validate-vsdoc.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.min.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\Scripts\modernizr-2.8.3.js" />
     <None Include="wwwroot\Scripts\Others\calendar.js" />
     <None Include="wwwroot\Scripts\Others\fullcalendar.js" />
     <None Include="wwwroot\Scripts\Others\gcal.js" />
@@ -1024,6 +1105,23 @@
     <None Include="wwwroot\Scripts\Others\raphael-min.js" />
     <None Include="wwwroot\Scripts\Others\toastr.js" />
     <None Include="wwwroot\Scripts\Others\toastr.min.js" />
+    <None Include="wwwroot\Scripts\popper-utils.js" />
+    <None Include="wwwroot\Scripts\popper-utils.js.map" />
+    <None Include="wwwroot\Scripts\popper-utils.min.js" />
+    <None Include="wwwroot\Scripts\popper-utils.min.js.map" />
+    <None Include="wwwroot\Scripts\popper.js" />
+    <None Include="wwwroot\Scripts\popper.js.map" />
+    <None Include="wwwroot\Scripts\popper.min.js" />
+    <None Include="wwwroot\Scripts\popper.min.js.map" />
+    <None Include="wwwroot\Scripts\README.md" />
+    <None Include="wwwroot\Scripts\respond.js" />
+    <None Include="wwwroot\Scripts\respond.matchmedia.addListener.js" />
+    <None Include="wwwroot\Scripts\respond.matchmedia.addListener.min.js" />
+    <None Include="wwwroot\Scripts\respond.min.js" />
+    <None Include="wwwroot\Scripts\select2.js" />
+    <None Include="wwwroot\Scripts\select2.min.js" />
+    <None Include="wwwroot\Scripts\select2_locale_pt-BR.js" />
+    <None Include="wwwroot\Scripts\ui-bootstrap-tpls-2.0.1.js" />
     <None Include="wwwroot\Scripts\umd\popper-utils.js" />
     <None Include="wwwroot\Scripts\umd\popper-utils.js.map" />
     <None Include="wwwroot\Scripts\umd\popper-utils.min.js" />
@@ -1036,26 +1134,12 @@
 
 
   <ItemGroup>
-
-    <PackageReference Include="kisslog.AspNetCore" Version="2.5.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
-    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.96" />
-    <PackageReference Include="SendGrid" Version="9.24.1" />
+    <TypeScriptCompile Include="wwwroot\Scripts\index.d.ts" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Cooperchip.ITDeveloper.Data\Cooperchip.ITDeveloper.Data.csproj" />
-    <ProjectReference Include="..\Coopership.ITDeveloper.Application\Coopership.ITDeveloper.Application.csproj" />
+    <Folder Include="wwwroot\importFile\" />
   </ItemGroup>
 
 </Project>
