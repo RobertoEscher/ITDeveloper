@@ -108,7 +108,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Areas.Identity.Pages.Account
                     Apelido = Input.Apelido,
                     NomeCompleto = Input.NomeCompleto,
                     DataNascimento = Input.DataNascimento,
-                    ImgProfilePath = file != null ? file.Name : ""
+                    ImgProfilePath = file != null ? file.FileName : ""
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
