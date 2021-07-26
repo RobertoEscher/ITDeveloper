@@ -20,6 +20,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.8" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.3.5">
       <PrivateAssets>all</PrivateAssets>
@@ -36,6 +37,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cooperchip.ITDeveloper.Data\Cooperchip.ITDeveloper.Data.csproj" />
     <ProjectReference Include="..\Coopership.ITDeveloper.Application\Coopership.ITDeveloper.Application.csproj" />
+    <ProjectReference Include="..\Coopership.ITDeveloper.CrossCutting\Coopership.ITDeveloper.CrossCutting.csproj" />
   </ItemGroup>
 
 
