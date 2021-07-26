@@ -4,7 +4,7 @@ using System.Security.Claims;
 
 namespace Cooperchip.ITDeveloper.Domain.Interfaces
 {
-    public interface IUserInContext<TKey>
+    public interface IUserInContext
     {
         string Name { get; }
         Guid GetUserId();
