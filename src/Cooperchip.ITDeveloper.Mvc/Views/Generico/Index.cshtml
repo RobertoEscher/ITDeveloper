@@ -93,7 +93,8 @@
     <script src="~/bundle/dataTables.min.js"></script>
 
 
-    <script type="text/javascript">$(".details").click(function () {
+    <script type="text/javascript">
+        $(".details").click(function () {
             var id = $(this).attr("data-id");
             $("#modalGnerico").load("/Generico/Details?id=" + id, function () {
                 $("#modalGnerico").modal();
@@ -120,7 +121,8 @@
             });
         });</script>
 
-    <script>$(document).ready(function () {
+    <script>
+        $(document).ready(function () {
             $('#myTable').DataTable({
                 dom: 'T<"clear">lfrtip',
                 tableTools: {
@@ -129,5 +131,9 @@
             });
         });
     </script>
+
+
+    <script src="~/bundle/dashboard.min.js"></script>
+
 
 }

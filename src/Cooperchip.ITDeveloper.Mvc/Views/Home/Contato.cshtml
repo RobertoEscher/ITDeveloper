@@ -14,8 +14,8 @@
             <form asp-controller="Home" asp-action="Contato" method="post">
                 <div asp-validation-sumarry="All" class="text-danger"></div>
 
-                <partial name="_contato"/>
-                
+                <partial name="_contato" />
+
 
                 <div class="form-group">
                     <input type="submit" value="Enviar" class="btn btn-success" />
@@ -27,3 +27,7 @@
     </div>
 
 </div>
+
+@section Scripts {
+    <script src="~/bundle/dashboard.min.js"></script>
+}
