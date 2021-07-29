@@ -7,6 +7,9 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using KissLog;
+using Microsoft.AspNetCore.Authorization;
+using Cooperchip.ITDeveloper.Domain.Interfaces;
+using System.Collections.Generic;
 
 namespace Cooperchip.ITDeveloper.Mvc.Controllers
 {
@@ -17,11 +20,16 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
     {
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly IUserInContext _user;
+        private readonly IUserInAllLayer _userInAllLayer;
 
-        public HomeController(IEmailSender emailSender, ILogger logger)
+
+        public HomeController(IEmailSender emailSender, ILogger logger, IUserInContext user, IUserInAllLayer userInAllLayer)
         {
             _emailSender = emailSender;
             _logger = logger;
+            this._user = user;
+            this._userInAllLayer = userInAllLayer;
         }
 
         [Route("")]
@@ -31,11 +39,37 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
             return View();
         }
 
-
+        //[Authorize(Roles = "Admin")]
         [Route("dashboard")]
         [Route("pagina-de-estatistica")]
         public IActionResult Dashboard()
         {
+            var email = "";
+
+            IDictionary<string, string> minhasClaims = new Dictionary<string, string>();
+
+            if (_user.IsAuthenticated())
+            {
+                var apelido = User.FindFirst(x => x.Type == "Apelido")?.Value;
+                email = User.FindFirst(x => x.Type == "Email")?.Value;
+
+                minhasClaims.Add("Apelido",_user.GetUserApelido());
+                minhasClaims.Add("Nome Complato", _user.GetUserNomeCompleto());
+                minhasClaims.Add("Imagem do Perfil", _user.GetUserImgProfilePath());
+                minhasClaims.Add("Id", _user.GetUserId().ToString());
+                minhasClaims.Add("Nome", _user.Name);
+                minhasClaims.Add("Email", _user.GetUserEmail());
+                minhasClaims.Add("E Administrador", _user.IsInRole("Admin") ? "SIM" : "NÃO" );
+
+                var testeUserClaims = minhasClaims;
+                var testeDictioraryOfClaims = _userInAllLayer.DictionayOfClaims();
+                var testeUserListClaims = _userInAllLayer.ListOfClaims();
+
+                var nome = minhasClaims["Nome"];
+                email = minhasClaims["Email"];
+                var ehAdministrador = minhasClaims["E Administrador"];
+            }
+
             return View();
         }
 

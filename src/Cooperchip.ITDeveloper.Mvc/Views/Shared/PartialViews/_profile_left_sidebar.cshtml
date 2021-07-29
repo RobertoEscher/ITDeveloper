@@ -12,13 +12,11 @@
     <div id="imgProfile">
         @if (_userInContext.IsAuthenticated() && !string.IsNullOrEmpty(_userInContext.GetUserImgProfilePath()))
         {
-            <img src="/Uploads/@_userInContext.GetUserImgProfilePath()" alt="imagem de perfil" style="clear: both; float:left; margin-right: 10px;
-                border: 2px solid #eeeeee; width: 50px; height:50px; border-radius: 50%;">
+            <img src="/Uploads/@_userInContext.GetUserImgProfilePath()" alt="imagem de perfil" class="coopershipCircleProfile">
         }
         else
         {
-            <img src="/img/avatars/foto-padrao.jpg" alt="avatar" style="clear: both; float:left; margin-right: 10px;
-            border: 2px solid #eeeeee; width: 50px; height:50px; border-radius: 50%;">
+            <img src="/img/avatars/foto-padrao.jpg" alt="avatar" class="coopershipCircleProfile">
         }
     </div>
 

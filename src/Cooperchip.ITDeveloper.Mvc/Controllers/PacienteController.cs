@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using Cooperchip.ITDeveloper.Domain.Interfaces.Entidades;
 
 namespace Cooperchip.ITDeveloper.Mvc.Controllers
 {
@@ -15,17 +15,18 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
     public class PacienteController : Controller
     {
         private readonly ITDeveloperDbContext _context;
+        private readonly IRepositoryDomainPaciente _repoPacientes;
 
-        public PacienteController(ITDeveloperDbContext context)
+        public PacienteController(ITDeveloperDbContext context, IRepositoryDomainPaciente repoPacientes)
         {
             _context = context;
+            this._repoPacientes = repoPacientes;
         }
 
         // GET: Paciente
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Paciente
-                .Include(x => x.EstadoPaciente).AsNoTracking().ToListAsync());
+            return View(await _repoPacientes.ListaPacientesComEstado());
         }
 
         public async Task<IActionResult> Details(Guid id)
@@ -35,8 +36,10 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
                 return NotFound();
             }
 
-            var paciente = await _context.Paciente.Include(x=>x.EstadoPaciente).AsNoTracking()
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var paciente = await _repoPacientes.SelecionarPorId(id);
+            //var paciente = await _context.Paciente.Include(x=>x.EstadoPaciente).AsNoTracking()
+            //    .FirstOrDefaultAsync(m => m.Id == id);
+
             if (paciente == null)
             {
                 return NotFound();
@@ -59,8 +62,9 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
             if (ModelState.IsValid)
             {
                 //paciente.Id = Guid.NewGuid(); // Não Usar
-                _context.Add(paciente);
-                await _context.SaveChangesAsync();
+                //_context.Add(paciente);
+                await this._repoPacientes.Inserir(paciente);
+                //await _context.SaveChangesAsync();
                 //return RedirectToAction(nameof(Index));
                 return RedirectToAction("Index");
             }
@@ -97,8 +101,9 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
             {
                 try
                 {
-                    _context.Update(paciente);
-                    await _context.SaveChangesAsync();
+                    //_context.Update(paciente);
+                    await this._repoPacientes.Atualizar(paciente);
+                    //await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {

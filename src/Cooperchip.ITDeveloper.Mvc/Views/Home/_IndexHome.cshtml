@@ -1,0 +1,55 @@
+﻿
+@inject Cooperchip.ITDeveloper.Domain.Interfaces.IUserInContext _userInContext
+
+<div class="wrapper">
+    <br />
+    <div class="row text-md-center text-sm-center text-xs-center">
+
+        <div class="col-md-3 col-sm-3 col-sx-12" style="padding-bottom: 15px;">
+            <div class="card card-inverse text-md-center text-sm-center text-xs-center">
+                <img src="/images/dashboard.png" class="card-img-top" style="width: 100%; height: auto" />
+                <div class="card-img-overlay">
+
+
+                    @if(_userInContext.IsAuthenticated() && _userInContext.IsInRole("Admin"))
+                    {
+                    <div style="text-align: center">
+                        <a asp-controller="Home" asp-action="Dashboard" style="text-decoration: none; color: #ed5353; font-size: 16px;">
+                            <h4 class="card-title">.:: Entrar ::.</h4>
+                        </a>
+                    </div>
+                    }
+                    else
+                    {
+                    <div style="text-align: center">
+                        <a asp-controller="Home" asp-action="BoxInit" style="text-decoration: none; color: #ed5353; font-size: 16px;">
+                            <h4 class="card-title">.:: Entrar ::.</h4>
+                        </a>
+                    </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <index-home titulo="Registro de Paciente" controlador="Home" visualizacao="Dashboard" imagem="atualizacao_cadastral.png"></index-home>
+        <index-home titulo="Agenda" controlador="Home" visualizacao="Dashboard" imagem="calendar.png"></index-home>
+        <index-home titulo="Chamada Médico" controlador="Home" visualizacao="Dashboard" imagem="examesdeimagens.png"></index-home>
+    </div>
+
+    <div class="row text-center">
+        <index-home titulo="Prontuários" controlador="Home" visualizacao="Dashboard" imagem="evolucao.png"></index-home>
+        <index-home titulo="Unidade Geográfica" controlador="Home" visualizacao="Dashboard" imagem="prescricao.png"></index-home>
+        <index-home titulo="Base de Conhecimento" controlador="Home" visualizacao="Dashboard" imagem="sinais_vitais.png"></index-home>
+        <index-home titulo="Mural de Avisos" controlador="Home" visualizacao="Dashboard" imagem="mural.png"></index-home>
+    </div>
+
+    <div class="row text-center">
+        <index-home titulo="Int. Medicamentosas" controlador="Home" visualizacao="Dashboard" imagem="interacao_medicamentosa.png"></index-home>
+        <index-home titulo="Controle de Acesso" controlador="Home" visualizacao="Dashboard" imagem="niveldeacesso.png"></index-home>
+        <index-home titulo="Adm de Usuários" controlador="Home" visualizacao="Dashboard" imagem="users.png"></index-home>
+        <index-home titulo="Configurações" controlador="Home" visualizacao="Dashboard" imagem="config.png"></index-home>
+    </div>
+</div>
