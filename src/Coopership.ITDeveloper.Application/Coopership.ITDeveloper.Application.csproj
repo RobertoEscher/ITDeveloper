@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cooperchip.ITDeveloper.Data\Cooperchip.ITDeveloper.Data.csproj" />
     <ProjectReference Include="..\Cooperchip.ITDeveloper.Domain\Cooperchip.ITDeveloper.Domain.csproj" />
+    <ProjectReference Include="..\Coopership.ITDeveloper.Repository\Coopership.ITDeveloper.Repository.csproj" />
   </ItemGroup>
 
 </Project>

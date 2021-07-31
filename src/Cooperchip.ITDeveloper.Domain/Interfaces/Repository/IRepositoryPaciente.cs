@@ -1,0 +1,22 @@
+﻿using Cooperchip.ITDeveloper.Domain.Models;
+using Cooperchip.ITDeveloper.DomainCore.Base;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Cooperchip.ITDeveloper.Domain.Interfaces.Repository
+{
+    public interface IRepositoryPaciente : IRepository<Paciente, Guid>
+    {
+        Task<IEnumerable<Paciente>> ListaPacientesComEstado();
+        Task<IEnumerable<Paciente>> ListaPacientes();
+
+        List<EstadoPaciente> ListaEstadoPaciente();
+
+        Task<Paciente> ObterPacienteComEstadoPaciente(Guid PacienteId);
+
+        bool TemPaciente(Guid pacienteId);
+
+        Task<IEnumerable<Paciente>> ObterPacientesPorEstadoPaciente(Guid estadoPacienteId);
+    }
+}

@@ -1,12 +1,12 @@
 ﻿using Cooperchip.ITDeveloper.Domain.Interfaces;
-using Cooperchip.ITDeveloper.Domain.Interfaces.Entidades;
+using Cooperchip.ITDeveloper.Domain.Interfaces.Repository;
 using Cooperchip.ITDeveloper.Mvc.Extensions.Filters;
 using Cooperchip.ITDeveloper.Mvc.Extensions.Identity;
 using Cooperchip.ITDeveloper.Mvc.Extensions.Identity.Services;
 using Cooperchip.ITDeveloper.Mvc.Infra;
+using Coopership.ITDeveloper.Application.Repository;
 using Coopership.ITDeveloper.CrossCutting.Auxiliar;
 using Coopership.ITDeveloper.CrossCutting.Helpers;
-using Coopership.ITDeveloper.Repository.Entidades;
 using KissLog;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -20,7 +20,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Configuration
     {
         public static IServiceCollection AddDependencyInjectConfig(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IRepositoryDomainPaciente, RepositoryPaciente>();
+            services.AddScoped<IRepositoryPaciente, PacienteRepository>();
 
             services.AddTransient<IUnitOfUpload, UnitOfUpload>();
 
