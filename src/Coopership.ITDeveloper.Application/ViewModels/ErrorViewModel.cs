@@ -1,6 +1,6 @@
 using System;
 
-namespace Cooperchip.ITDeveloper.Mvc.Models
+namespace Coopership.ITDeveloper.Application.ViewModels
 {
     public class ErrorViewModel
     {

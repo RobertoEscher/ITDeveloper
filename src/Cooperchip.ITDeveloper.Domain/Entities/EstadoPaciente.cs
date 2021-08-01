@@ -3,7 +3,7 @@ using Cooperchip.ITDeveloper.Domain.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Cooperchip.ITDeveloper.Domain.Models
+namespace Cooperchip.ITDeveloper.Domain.Entities
 {
     public class EstadoPaciente : EntityBase
     {

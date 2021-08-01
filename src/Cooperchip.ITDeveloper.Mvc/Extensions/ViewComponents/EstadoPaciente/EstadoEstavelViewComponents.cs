@@ -33,7 +33,8 @@ namespace Cooperchip.ITDeveloper.Mvc.Extensions.ViewComponents.EstadoPaciente
                 Progress = progress
             };
 
-            return View(model);
+            //return View(model);
+            return await Task.Run(() => View(model));
         }
     }
 }

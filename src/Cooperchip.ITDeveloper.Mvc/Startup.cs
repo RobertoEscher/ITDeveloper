@@ -6,6 +6,7 @@ using Cooperchip.ITDeveloper.Mvc.Extensions.Identity;
 using Cooperchip.ITDeveloper.Mvc.Extensions.Identity.Services;
 using Cooperchip.ITDeveloper.Mvc.Extensions.Middlewares;
 using Cooperchip.ITDeveloper.Mvc.Identity.Services;
+using Coopership.ITDeveloper.Application.AutoMapper;
 using KissLog.Apis.v1.Listeners;
 using KissLog.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -41,6 +42,7 @@ namespace Cooperchip.ITDeveloper.Mvc
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(AutoMapperConfig));
             services.AddDbContextConfig(Configuration); // In DbContextConfig
             services.AddIdentityConfig(Configuration); // In IdentityConfig
             services.AddMvcAndRazor(); // In MvcAndRazor
@@ -54,6 +56,7 @@ namespace Cooperchip.ITDeveloper.Mvc
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseMigrationsEndPoint(); // Add .Net 5
             }
             else
             {

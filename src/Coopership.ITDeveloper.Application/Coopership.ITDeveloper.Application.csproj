@@ -5,13 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Cooperchip.ITDeveloper.Data\Cooperchip.ITDeveloper.Data.csproj" />
     <ProjectReference Include="..\Cooperchip.ITDeveloper.Domain\Cooperchip.ITDeveloper.Domain.csproj" />
-    <ProjectReference Include="..\Coopership.ITDeveloper.Repository\Coopership.ITDeveloper.Repository.csproj" />
   </ItemGroup>
 
 </Project>

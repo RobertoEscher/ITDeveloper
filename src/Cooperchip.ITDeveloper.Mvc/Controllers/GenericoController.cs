@@ -1,5 +1,5 @@
 ﻿using Cooperchip.ITDeveloper.Data.ORM;
-using Cooperchip.ITDeveloper.Domain.Models;
+using Cooperchip.ITDeveloper.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -31,7 +31,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id.Value == null)
+            if (id == null)
             {
                 return NotFound();
             }

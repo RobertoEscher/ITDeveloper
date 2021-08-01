@@ -10,7 +10,7 @@
 
 
   <ItemGroup>
-
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="kisslog.AspNetCore" Version="2.5.6" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="5.0.8" />
@@ -41,7 +41,6 @@
     <ProjectReference Include="..\Cooperchip.ITDeveloper.Data\Cooperchip.ITDeveloper.Data.csproj" />
     <ProjectReference Include="..\Coopership.ITDeveloper.Application\Coopership.ITDeveloper.Application.csproj" />
     <ProjectReference Include="..\Coopership.ITDeveloper.CrossCutting\Coopership.ITDeveloper.CrossCutting.csproj" />
-    <ProjectReference Include="..\Coopership.ITDeveloper.Repository\Coopership.ITDeveloper.Repository.csproj" />
   </ItemGroup>
 
 

@@ -1,6 +1,6 @@
 ﻿using Cooperchip.ITDeveloper.Domain.Entities;
 
-namespace Cooperchip.ITDeveloper.Domain.Models
+namespace Cooperchip.ITDeveloper.Domain.Entities
 {
     public class Medicamento : EntityBase
     {

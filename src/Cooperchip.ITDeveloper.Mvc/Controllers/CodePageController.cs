@@ -11,7 +11,9 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
         
         public async Task<IActionResult> Index()
         {
+#pragma warning disable IDE0090 // Use 'new(...)'
             List<CodigoPagina> listaCodPage = new List<CodigoPagina>();
+#pragma warning restore IDE0090 // Use 'new(...)'
 
             foreach (EncodingInfo encInfo in Encoding.GetEncodings())
             {
@@ -24,7 +26,8 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
                 });
             }
 
-            return View(listaCodPage.AsEnumerable());
+            //return View(listaCodPage.AsEnumerable());
+            return await Task.Run(() => View(listaCodPage.AsEnumerable()));
         }
     }
 

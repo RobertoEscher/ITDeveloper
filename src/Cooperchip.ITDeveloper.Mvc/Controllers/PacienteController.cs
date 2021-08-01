@@ -1,11 +1,12 @@
-﻿using Cooperchip.ITDeveloper.Domain.Interfaces.Repository;
-using Cooperchip.ITDeveloper.Domain.Models;
+﻿
+using Cooperchip.ITDeveloper.Domain.Entities;
+using Cooperchip.ITDeveloper.Domain.Interfaces.Repository;
+using Coopership.ITDeveloper.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Cooperchip.ITDeveloper.Mvc.Controllers
@@ -14,31 +15,36 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
     public class PacienteController : Controller
     {
         //private readonly ITDeveloperDbContext _context;
+
+        private readonly IServicoAplicacaoPaciente _seviceApp;
         private readonly IRepositoryPaciente _repoPacientes;
 
-        public PacienteController(//ITDeveloperDbContext context, 
-            IRepositoryPaciente repoPacientes)
+        public PacienteController(//ITDeveloperDbContext context,
+                                  IRepositoryPaciente repoPacientes,
+                                  IServicoAplicacaoPaciente seviceApp)
         {
             //_context = context;
-            this._repoPacientes = repoPacientes;
+            _repoPacientes = repoPacientes;
+            _seviceApp = seviceApp;
         }
 
         // GET: Paciente
         public async Task<IActionResult> Index()
         {
-            return View(await _repoPacientes.ListaPacientesComEstado());
+            //return View(await _repoPacientes.ListaPacientesComEstado());
+            //return View(await _seviceApp.ObterPacientesComEstadodoPacienteApplication());
+            return View(await _seviceApp.ObterPacientesComEstadodoPacienteApplication());
         }
 
         public async Task<IActionResult> Details(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var paciente = await _repoPacientes.ObterPacienteComEstadoPaciente(id);
+
+            //var paciente = await _repoPacientes.ObterPacienteComEstadoPaciente(id);
             //var paciente = await _context.Paciente.Include(x=>x.EstadoPaciente).AsNoTracking()
             //    .FirstOrDefaultAsync(m => m.Id == id);
+
+            var paciente = await _seviceApp.ObterPacienteComEstadodoPacienteApplication(id);
 
             if (paciente == null)
             {
@@ -48,20 +54,18 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
             return View(paciente);
         }
 
-        public async Task<IActionResult> ReportForEstadoPaciente(Guid? id)
+        public async Task<IActionResult> ReportForEstadoPaciente(Guid id)
         {
-            if(id.Value == null) return NotFound();
-
-            var pacientePorEstado = await this._repoPacientes.ObterPacientesPorEstadoPaciente(id.Value);
+            var pacientePorEstado = await _seviceApp.ObterPacientesPorEstadoPacienteApplication(id);
 
             if (pacientePorEstado == null) return NotFound();
 
             return View(pacientePorEstado);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewBag.EstadoPaciente = new SelectList(_repoPacientes.ListaEstadoPaciente(), "Id", "Descricao");
+            ViewBag.EstadoPaciente = new SelectList(await _seviceApp.ListaEstadoPacienteApplication(), "Id", "Descricao");
             return View();
         }
 
@@ -79,23 +83,18 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
                 //return RedirectToAction(nameof(Index));
                 return RedirectToAction("Index");
             }
-            ViewBag.EstadoPaciente = new SelectList(_repoPacientes.ListaEstadoPaciente(), "Id", "Descricao", paciente.EstadoPacienteId);
+            ViewBag.EstadoPaciente = new SelectList(await _seviceApp.ListaEstadoPacienteApplication(), "Id", "Descricao", paciente.EstadoPacienteId);
             return View(paciente);
         }
 
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid id)
         {
-            if (id.Value == null)
-            {
-                return NotFound();
-            }
-
-            var paciente = await _repoPacientes.SelecionarPorId(id.Value);
+            var paciente = await _repoPacientes.SelecionarPorId(id);
             if (paciente == null)
             {
                 return NotFound();
             }
-            ViewBag.EstadoPaciente = new SelectList(_repoPacientes.ListaEstadoPaciente(), "Id", "Descricao", paciente.EstadoPacienteId);
+            ViewBag.EstadoPaciente = new SelectList(await _seviceApp.ListaEstadoPacienteApplication(), "Id", "Descricao", paciente.EstadoPacienteId);
             return View(paciente);
         }
 
@@ -129,21 +128,14 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.EstadoPaciente = new SelectList(_repoPacientes.ListaEstadoPaciente(), "Id", "Descricao", paciente.EstadoPacienteId);
+            ViewBag.EstadoPaciente = new SelectList(await _seviceApp.ListaEstadoPacienteApplication(), "Id", "Descricao", paciente.EstadoPacienteId);
             return View(paciente);
         }
 
         public async Task<IActionResult> Delete(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             //var paciente = await _context.Paciente.Include(x=>x.EstadoPaciente).AsNoTracking()
             //    .FirstOrDefaultAsync(m => m.Id == id);
-
-            
 
             var paciente = await _repoPacientes.ObterPacienteComEstadoPaciente(id);
             if (paciente == null)
@@ -170,7 +162,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
 
         private bool PacienteExists(Guid id)
         {
-            return _repoPacientes.TemPaciente(id);
+            return _seviceApp.TemPacienteApplication(id);
         }
     }
 }

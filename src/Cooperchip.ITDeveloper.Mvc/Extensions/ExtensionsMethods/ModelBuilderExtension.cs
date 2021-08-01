@@ -1,4 +1,4 @@
-﻿using Cooperchip.ITDeveloper.Domain.Models;
+﻿using Cooperchip.ITDeveloper.Domain.Entities;
 using Cooperchip.ITDeveloper.Mvc.Extensions.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -63,7 +63,9 @@ namespace Cooperchip.ITDeveloper.Mvc.Extensions.ExtensionsMethods
             var k = 0;
             string line;
 
+#pragma warning disable SYSLIB0012 // Type or member is obsolete
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+#pragma warning restore SYSLIB0012 // Type or member is obsolete
             var csvPath = Path.Combine(outPutDirectory, "Csv\\Generico.CSV");
             string filePath = new Uri(csvPath).LocalPath;
 

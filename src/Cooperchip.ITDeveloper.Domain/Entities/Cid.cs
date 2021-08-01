@@ -1,7 +1,7 @@
 ﻿using Cooperchip.ITDeveloper.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace Cooperchip.ITDeveloper.Domain.Models
+namespace Cooperchip.ITDeveloper.Domain.Entities
 {
     public class Cid : EntityBase
     {

@@ -15,7 +15,8 @@ namespace Cooperchip.ITDeveloper.Mvc.Extensions.ViewComponents.Cabecalho
                 Subtitulo = subtitulo
             };
 
-            return View(model);
+            //return View(model);
+            return await Task.Run(() => View(model));
         }
     }
 }

@@ -1,15 +1,12 @@
-﻿
-using Cooperchip.ITDeveloper.Mvc.Models;
-using Cooperchip.ITDeveloper.Mvc.ViewModels;
+﻿using Cooperchip.ITDeveloper.Domain.Interfaces;
+using Coopership.ITDeveloper.Application.ViewModels;
+using KissLog;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using KissLog;
-using Microsoft.AspNetCore.Authorization;
-using Cooperchip.ITDeveloper.Domain.Interfaces;
-using System.Collections.Generic;
 
 namespace Cooperchip.ITDeveloper.Mvc.Controllers
 {
@@ -82,7 +79,7 @@ namespace Cooperchip.ITDeveloper.Mvc.Controllers
         [Route("quem-somos")]
         [Route("sobre-nos")]
         [Route("sobre/{id:guid}/{paciente}/{categoria?}")]
-        public IActionResult Sobre(Guid id, string paciente, string categoria)
+        public IActionResult Sobre() //public IActionResult Sobre(Guid id, string paciente, string categoria)
         {
             return View();
         }

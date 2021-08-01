@@ -1,5 +1,5 @@
 ﻿using Cooperchip.ITDeveloper.Data.ORM;
-using Cooperchip.ITDeveloper.Domain.Models;
+using Cooperchip.ITDeveloper.Domain.Entities;
 using Coopership.ITDeveloper.Application.Extensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
